@@ -1,0 +1,77 @@
+.services {
+  background-color: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid var(--border-color);
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.serviceName {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.servicePrice {
+  color: var(--text-secondary);
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+.icon {
+  color: var(--text-secondary);
+  opacity: 0.5;
+  transition: opacity 0.4s ease, color 0.4s ease;
+}
+
+.card:hover .icon {
+  opacity: 1;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,132 @@
+.heroContainer {
+  position: relative;
+  height: 300vh; /* Gives room for scroll scrubbing */
+  width: 100vw;
+  background-color: var(--bg-color);
+}
+
+.stickyWrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+.canvas.fade-out {
+  opacity: 0.2;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none; /* Let clicks pass through if needed, though button needs pointer-events */
+}
+
+.title {
+  font-size: 8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.bookBtn {
+  margin-top: 3rem;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--bg-color);
+  background-color: var(--text-primary);
+  border: none;
+  border-radius: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  pointer-events: auto; /* Enable click */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.bookBtn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Preloader styles */
+.preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloaderText {
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.05); /* Faint */
+  position: absolute;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--text-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 51;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    height: 100vh; /* Static fallback on mobile */
+  }
+  .title {
+    font-size: 4rem;
+    letter-spacing: 0.1em;
+  }
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+  }
+}

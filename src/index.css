@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --accent-color: rgba(255, 255, 255, 0.1);
+  --accent-hover: rgba(255, 255, 255, 0.2);
+  --border-color: rgba(255, 255, 255, 0.15);
+  --glow-color: rgba(255, 255, 255, 0.3);
+  --error-color: #ff4d4f;
+  --success-color: #52c41a;
+  
+  --font-main: 'Outfit', sans-serif;
+  --nav-height: 80px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide default cursor only for non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lock scroll class for preloader */
+.scroll-locked {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Smooth scrolling via GSAP or native */
+html {
+  scroll-behavior: auto; /* Handled by GSAP/JS if needed, or native if smooth */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:focus, input:focus {
+  outline: none;
+}
+
+input {
+  font-family: inherit;
+}
+
+/* Focus interaction feedback */
+input:focus {
+  box-shadow: 0 0 10px var(--glow-color);
+  border-color: var(--text-primary) !important;
+}
+
+/* Utility classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 8rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 4rem;
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Active/Pressed state for buttons */
+.interactive:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 5rem 0;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+  .container {
+    padding: 0 1.5rem;
+  }
+}

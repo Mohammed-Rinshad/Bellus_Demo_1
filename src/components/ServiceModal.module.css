@@ -1,0 +1,190 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.modal {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: var(--text-secondary);
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  color: var(--text-primary);
+}
+
+.header {
+  padding: 3rem 2rem 2rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.bookBtn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 6px;
+}
+
+.bookingContainer {
+  padding: 2rem;
+  background-color: rgba(10, 10, 10, 0.5);
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.8rem 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.dateScroll {
+  display: flex;
+  gap: 0.8rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+}
+.dateScroll::-webkit-scrollbar { display: none; }
+
+.dateCard {
+  min-width: 80px;
+  padding: 1rem 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.dateCard.active {
+  background: var(--text-primary);
+  color: var(--bg-color);
+}
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.8rem;
+}
+
+.timeChip {
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+.timeChip.active {
+  background: var(--text-primary);
+  color: var(--bg-color);
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 6px;
+}
+
+.errorMsg {
+  color: var(--error-color);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.successState {
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}

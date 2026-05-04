@@ -1,0 +1,45 @@
+.footer {
+  background-color: var(--bg-color);
+  padding: 4rem 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.info {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--text-primary);
+}
+
+.copyright {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
