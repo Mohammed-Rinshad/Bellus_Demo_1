@@ -85,106 +85,12 @@
   border-radius: 6px;
 }
 
-.bookingContainer {
-  padding: 2rem;
-  background-color: rgba(10, 10, 10, 0.5);
-}
+@media (max-width: 480px) {
+  .header {
+    padding: 2.5rem 1.25rem 1.5rem;
+  }
 
-.bookingForm {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.label {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.input {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border-color);
-  padding: 0.8rem 0;
-  color: var(--text-primary);
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.dateScroll {
-  display: flex;
-  gap: 0.8rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scrollbar-width: none;
-}
-.dateScroll::-webkit-scrollbar { display: none; }
-
-.dateCard {
-  min-width: 80px;
-  padding: 1rem 0.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.2rem;
-}
-.dateCard.active {
-  background: var(--text-primary);
-  color: var(--bg-color);
-}
-
-.timeGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-  gap: 0.8rem;
-}
-
-.timeChip {
-  padding: 0.6rem;
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  text-align: center;
-}
-.timeChip.active {
-  background: var(--text-primary);
-  color: var(--bg-color);
-}
-
-.submitBtn {
-  margin-top: 1rem;
-  width: 100%;
-  padding: 1rem;
-  background-color: var(--text-primary);
-  color: var(--bg-color);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: 6px;
-}
-
-.errorMsg {
-  color: var(--error-color);
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-.successState {
-  padding: 4rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  .title {
+    font-size: 1.6rem;
+  }
 }

@@ -75,49 +75,6 @@
   letter-spacing: 0.05em;
 }
 
-.dateScroll {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
-  scrollbar-width: none;
-}
-
-.dateScroll::-webkit-scrollbar {
-  display: none;
-}
-
-.dateCard {
-  min-width: 100px;
-  padding: 1.5rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.dateCard.active {
-  background: var(--text-primary);
-  color: var(--bg-color);
-  border-color: var(--text-primary);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-.dateDay {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.dateNum {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
 .timeGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));

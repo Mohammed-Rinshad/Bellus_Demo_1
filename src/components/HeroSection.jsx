@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,6 +13,7 @@ const FRAME_COUNT = 100; // Soft limit for performance
 const currentFrame = index => `/images/hero_${(index + 1).toString().padStart(4, '0')}.webp`;
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -155,11 +157,7 @@ const HeroSection = () => {
   }, [isLoading, isMobile]);
 
   const handleBookClick = () => {
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: { y: '#booking', offsetY: 50 },
-      ease: "power3.inOut"
-    });
+    navigate('/book');
   };
 
   return (

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -7,27 +8,33 @@ import styles from './Navigation.module.css';
 gsap.registerPlugin(ScrollToPlugin);
 
 const navItems = [
-  { name: 'Home', target: '#hero' },
+  { name: 'Home', target: '/' },
   { name: 'Services', target: '#services' },
   { name: 'Team', target: '#team' },
   { name: 'Location', target: '#location' },
-  { name: 'Booking', target: '#booking' }
+  { name: 'Booking', target: '/book' }
 ];
 
 const Navigation = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('#hero');
 
   useEffect(() => {
     const handleScroll = () => {
-      // Find active section based on scroll position
-      const sections = navItems.map(item => document.querySelector(item.target));
+      // Only track sections on home page
+      if (location.pathname !== '/') return;
+
+      const sections = navItems
+        .filter(item => item.target.startsWith('#'))
+        .map(item => ({ target: item.target, element: document.querySelector(item.target) }));
       const scrollPos = window.scrollY + window.innerHeight / 2;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
-        if (section && section.offsetTop <= scrollPos) {
-          setActiveSection(navItems[i].target);
+        if (section.element && section.element.offsetTop <= scrollPos) {
+          setActiveSection(section.target);
           break;
         }
       }
@@ -35,17 +42,24 @@ const Navigation = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const handleNavClick = (target) => {
     setIsOpen(false);
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: { y: target, offsetY: 0 },
-      ease: "power3.inOut"
-    });
+
+    if (target.startsWith('#')) {
+      // Smooth scroll to section
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: target, offsetY: 0 },
+        ease: "power3.inOut"
+      });
+    } else {
+      // Navigate to route
+      navigate(target);
+    }
   };
 
   return (

@@ -10,11 +10,27 @@
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.content:hover {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .icon {
   color: var(--text-secondary);
   opacity: 0.8;
+  transition: all 0.4s ease;
+}
+
+.content:hover .icon {
+  opacity: 1;
+  color: var(--text-primary);
+  transform: translateY(-2px);
 }
 
 .cityName {
@@ -23,6 +39,11 @@
   color: var(--text-primary);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  transition: all 0.4s ease;
+}
+
+.content:hover .cityName {
+  color: var(--text-primary);
 }
 
 .details {
@@ -30,4 +51,36 @@
   font-size: 1.1rem;
   max-width: 400px;
   line-height: 1.6;
+  transition: all 0.4s ease;
+}
+
+.content:hover .details {
+  color: var(--text-secondary);
+}
+
+.clickHint {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.content:hover .clickHint {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .location {
+    padding: 4rem 0;
+  }
+
+  .cityName {
+    font-size: 2rem;
+  }
+
+  .details {
+    font-size: 1rem;
+  }
 }

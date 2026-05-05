@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
+import DatePickerV2 from './DatePickerV2';
 import styles from './BookingSection.module.css';
 
 const servicesList = [
   "Men's Haircut", "Women's Haircut", "Hair Coloring", "Hair Treatment", "Hair Care",
   "Beard Grooming", "Shaving", "Body Waxing", "Curly Hair Styling"
-];
-
-const dates = [
-  { day: 'Mon', num: '12' },
-  { day: 'Tue', num: '13' },
-  { day: 'Wed', num: '14' },
-  { day: 'Thu', num: '15' },
-  { day: 'Fri', num: '16' },
-  { day: 'Sat', num: '17' },
 ];
 
 const timeSlots = {
@@ -93,19 +85,7 @@ const BookingSection = ({ preSelectedService, onServiceChange }) => {
                 {/* Date Selection */}
                 <div className={styles.formGroup}>
                   <label className={styles.label}>2. Select Date</label>
-                  <div className={styles.dateScroll}>
-                    {dates.map(d => (
-                      <button 
-                        type="button"
-                        key={d.num}
-                        className={`interactive ${styles.dateCard} ${selectedDate === d.num ? styles.active : ''}`}
-                        onClick={() => setSelectedDate(d.num)}
-                      >
-                        <span className={styles.dateDay}>{d.day}</span>
-                        <span className={styles.dateNum}>{d.num}</span>
-                      </button>
-                    ))}
-                  </div>
+                  <DatePickerV2 selectedDate={selectedDate} onDateSelect={setSelectedDate} />
                 </div>
 
                 {/* Time Selection */}
